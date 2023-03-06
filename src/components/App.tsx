@@ -1,5 +1,6 @@
 import React from 'react';
 import GlobalStyle from '../globalStyles';
+import Container from './Container';
 import Footer from './Footer';
 
 type AppProps = {};
@@ -8,7 +9,7 @@ const App: React.FC<AppProps> = () => {
   return (
     <>
       <GlobalStyle />
-      <h1>Time Tracking Dashboard</h1>
+      <Container />
       <Footer />
     </>
   );
