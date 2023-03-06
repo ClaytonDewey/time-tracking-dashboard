@@ -61,6 +61,36 @@ const StyledUserCard = styled.div`
       }
     }
   }
+  /* 
+  @media screen and (min-width: 48em) {
+    width: 25.5rem;
+    height: 52rem;
+
+    .user {
+      height: 35.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 3.4rem;
+
+      img {
+        margin-bottom: 4rem;
+        height: 8.5rem;
+        width: 8.5rem;
+      }
+
+      &-info {
+        text-align: left;
+
+        p {
+          font-size: 1.6rem;
+        }
+
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
+  } */
 `;
 
 const UserCard: React.FC<UserCardProps> = () => {
