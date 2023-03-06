@@ -5,12 +5,12 @@ const GlobalStyle = createGlobalStyle`
   /* Colors */
   /* Primary */
   --primary-blue: hsl(246, 80%, 60%);
-  --light-orange: hsl(15, 100%, 70%);
-  --soft-orange: hsl(43, 84%, 65%);
-  --light-red: hsl(348, 100%, 68%);
-  --soft-blue: hsl(195, 74%, 62%);
-  --lime-green: hsl(145, 58%, 55%);
-  --violet: hsl(264, 64%, 52%);
+  --work: hsl(15, 100%, 70%);
+  --selfcare: hsl(43, 84%, 65%);
+  --study: hsl(348, 100%, 68%);
+  --play: hsl(195, 74%, 62%);
+  --exercise: hsl(145, 58%, 55%);
+  --social: hsl(264, 64%, 52%);
 
   /* Neutral */
   --white: hsl(0, 0%, 100%);
