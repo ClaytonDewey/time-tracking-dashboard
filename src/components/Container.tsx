@@ -6,7 +6,7 @@ import UserCard from './UserCard';
 type ContainerProps = {};
 
 const StyledContainer = styled.main`
-  text-align: center;
+  width: 100%;
 `;
 
 const Container: React.FC<ContainerProps> = () => {
