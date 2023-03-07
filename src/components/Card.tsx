@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from '../Icons';
+import { Icon, IconEllipsis } from '../Icons';
 
 interface timeframe {
   current: number;
@@ -64,7 +64,26 @@ const StyledCard = styled.div`
       position: relative;
       background-color: var(--dark-blue);
       border-radius: 1.5rem;
-      z-index: 100;
+      padding: 2.5rem;
+      /* z-index: 100; */
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      button {
+        position: relative;
+        background-color: transparent;
+        border: none;
+
+        svg {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
     }
   }
 `;
@@ -78,14 +97,24 @@ const Card: React.FC<CardProps> = ({ title, timeframes, statsBy }) => {
         name={title !== 'Self Care' ? `${title.toLowerCase()}` : 'selfcare'}
       />
       <div className='card-body'>
-        <p>{title}</p>
-        {statsBy === 'daily' ? (
-          <p>{timeframes.daily.current}</p>
-        ) : statsBy === 'weekly' ? (
-          <p>{timeframes.weekly.current}</p>
-        ) : (
-          <p>{timeframes.monthly.current}</p>
-        )}
+        <span>
+          <p>{title}</p>
+          <button>
+            <IconEllipsis />
+          </button>
+        </span>
+        <span>
+          <p>
+            {statsBy === 'daily' ? (
+              <>{timeframes.daily.current}</>
+            ) : statsBy === 'weekly' ? (
+              <>{timeframes.weekly.current}</>
+            ) : (
+              <>{timeframes.monthly.current}</>
+            )}
+            hrs
+          </p>
+        </span>
       </div>
     </StyledCard>
   );
