@@ -24,7 +24,7 @@ const StyledCard = styled.div`
   border-radius: 1.5rem;
   margin-bottom: 3rem;
   position: relative;
-  padding-top: 4.5rem;
+  padding-top: 4rem;
   background-repeat: no-repeat;
   overflow: hidden;
 
@@ -67,7 +67,8 @@ const StyledCard = styled.div`
       padding: 2.5rem;
       /* z-index: 100; */
 
-      span {
+      &__head,
+      &__content {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -84,12 +85,34 @@ const StyledCard = styled.div`
           transform: translateY(-50%);
         }
       }
+
+      &__head {
+        margin-bottom: 1rem;
+      }
+
+      &__content {
+        span {
+          color: var(--pale-blue);
+          font-size: 1.4rem;
+        }
+        span:not(:last-child) {
+          font-size: 3rem;
+          color: var(--white);
+        }
+      }
     }
   }
 `;
 
 const Card: React.FC<CardProps> = ({ title, timeframes, statsBy }) => {
-  console.log(title);
+  const { daily, weekly, monthly } = timeframes;
+  let typeToDisplay;
+  statsBy === 'daily'
+    ? (typeToDisplay = daily)
+    : statsBy === 'weekly'
+    ? (typeToDisplay = weekly)
+    : (typeToDisplay = monthly);
+
   return (
     <StyledCard
       className={title !== 'Self Care' ? `${title.toLowerCase()}` : 'selfcare'}>
@@ -97,23 +120,18 @@ const Card: React.FC<CardProps> = ({ title, timeframes, statsBy }) => {
         name={title !== 'Self Care' ? `${title.toLowerCase()}` : 'selfcare'}
       />
       <div className='card-body'>
-        <span>
+        <span className='card-body__head'>
           <p>{title}</p>
           <button>
             <IconEllipsis />
           </button>
         </span>
-        <span>
-          <p>
-            {statsBy === 'daily' ? (
-              <>{timeframes.daily.current}</>
-            ) : statsBy === 'weekly' ? (
-              <>{timeframes.weekly.current}</>
-            ) : (
-              <>{timeframes.monthly.current}</>
-            )}
+        <span className='card-body__content'>
+          <span>
+            {typeToDisplay.current}
             hrs
-          </p>
+          </span>
+          <span>Last week - {typeToDisplay.previous}hrs</span>
         </span>
       </div>
     </StyledCard>
