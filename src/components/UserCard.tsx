@@ -61,7 +61,7 @@ const StyledUserCard = styled.div`
       }
     }
   }
-  /* 
+
   @media screen and (min-width: 48em) {
     width: 25.5rem;
     height: 52rem;
@@ -90,7 +90,7 @@ const StyledUserCard = styled.div`
         }
       }
     }
-  } */
+  }
 `;
 
 const UserCard: React.FC<UserCardProps> = () => {
